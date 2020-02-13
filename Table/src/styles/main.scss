@@ -1,0 +1,114 @@
+@mixin flex($horizantly: center, $vertically: center, $direction: row) {
+  display: flex;
+  justify-content: $horizantly;
+  align-items: $vertically;
+  flex-direction: $direction;
+}
+
+@mixin grid($horizontaly: center, $columns: 3, $length: 1fr) {
+  display: grid;
+  justify-items: $horizontaly;
+  grid-template-columns: repeat($columns, $length);
+}
+
+@mixin sideBorder {
+  border-left: 1px dashed rgba(0, 0, 255, 0.2);
+  border-right: 1px dashed rgba(0, 0, 255, 0.2);
+}
+
+%outside-entities {
+  text-align: center;
+  padding: 1rem;
+  border: 1px solid #000000;
+  margin: 1rem 0;
+  border-radius: 5px;
+  background: transparent;
+}
+
+html {
+  box-sizing: border-box;
+  font-family: cursive, monospace, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.main {
+  @include flex(space-around);
+  margin: 4rem;
+}
+
+.table {
+  @include grid(center, 3, 200px);
+  border-radius: 5px;
+  border: 1px solid rgb(90, 90, 90);
+  padding: 1rem;
+  box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, 0.2);
+}
+
+.header {
+  @include flex;
+  width: 100%;
+  font-weight: bold;
+  font-size: 2rem;
+  cursor: pointer;
+  border-bottom: 1px solid black;
+  outline: none;
+}
+
+.table-row {
+  @include grid;
+  justify-items: normal;
+  grid-column: 1 / 4;
+  width: 100%;
+  cursor: pointer;
+  border-bottom: 1px solid black;
+
+  &:hover {
+    background: rgba(0, 0, 255, 0.1);
+  }
+
+  &:focus {
+    background: rgba(0, 0, 255, 0.2);
+    outline: none;
+  }
+
+  .cell {
+    @include flex;
+    @include sideBorder;
+    cursor: pointer;
+    padding: 1rem;
+  }
+}
+
+.pagination {
+  @include flex;
+  grid-column: 1 / 4;
+  width: 100%;
+  padding: 1rem;
+
+  .pag-button {
+    margin: 0 0.5rem;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    outline: none;
+  }
+}
+
+.table-option {
+  @include flex(space-around, "", column);
+  width: 20vw;
+  align-self: end;
+  position: sticky;
+  top: 30vh;
+  padding: 1rem;
+
+  .clicked-cell {
+    @extend %outside-entities;
+  }
+
+  .control-pagination {
+    @extend %outside-entities;
+    cursor: pointer;
+  }
+}
