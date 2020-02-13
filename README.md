@@ -2,7 +2,11 @@
 
 ## Instructions
 ***npm install*** -- install necessary dependencies.<br>
+### Table ###
 ***npm run dev*** -- start project in development mode.<br>
+
+### Design ###
+***open index.html***
 
 ## Environment
 - npm version 6.13.6
