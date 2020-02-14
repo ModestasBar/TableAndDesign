@@ -6,6 +6,7 @@ import Pagination from './Pagination';
 import { setData } from '../actions';
 
 const Table = () => {
+  // eslint-disable-next-line prefer-const
   let [initData, setInitData] = useState([]);
   const dispatch = useDispatch();
   const { data, sort, pagination } = useSelector((state) => state);
@@ -13,7 +14,7 @@ const Table = () => {
 
   useEffect(() => {
     const handleData = () => {
-      fetch('https://jsonplaceholder.typicode.com/todos')
+      fetch('http://localhost:3000/todos')
         .then((res) => res.json())
         .then((val) => {
           if (initData.length < 2000) {
