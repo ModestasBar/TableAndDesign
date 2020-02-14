@@ -3,6 +3,7 @@
 ## Instructions
 ***npm install*** -- install necessary dependencies.<br>
 ### Table ###
+***npm run server*** -- set fake API  
 ***npm run dev*** -- start project in development mode.<br>
 
 ### Design ###
